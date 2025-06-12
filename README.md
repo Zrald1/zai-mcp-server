@@ -473,8 +473,8 @@ MIT License - Use freely in any project, commercial or personal.
 
 ## 🔗 **Links**
 
-- **GitHub**: [zraldloop](https://github.com/Zrald1/zraldloop)
-- **Issues**: [Report bugs](https://github.com/Zrald1/zraldloop/issues)
+
+
 - **NPM**: [zai-mcp-server](https://www.npmjs.com/package/zai-mcp-server)
 
 ---
