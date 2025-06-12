@@ -1,150 +1,227 @@
 # ZAI MCP Server
 
-An advanced Model Context Protocol (MCP) server that provides AI-powered infinite loop capabilities for continuous improvement and AI-to-AI communication.
+**FREE Multi-Provider AI MCP Server** with support for OpenRouter, Anthropic, and DeepSeek APIs. Features automatic failover, AI-to-AI loops, and smart data collection. No license validation required - completely free for all users!
 
-## 🚀 Features
+## ✨ Key Features
 
-### Core Functionality
-- **Infinite Loop System**: Activate continuous AI-powered improvement loops for any topic
-- **AI-to-AI Communication**: Enable seamless communication between AI agents
-- **Multi-Provider Support**: Integration with OpenRouter, Anthropic, and DeepSeek AI providers
-- **Dynamic Loop Management**: Start, stop, monitor, and configure loops in real-time
-- **Intelligent Prompt Generation**: AI-generated prompts ready for VSCode AI assistant
+🆓 **Completely FREE** - No license validation or restrictions
+🤖 **Multi-Provider Support** - OpenRouter, Anthropic, DeepSeek APIs
+🔄 **Automatic Failover** - Smart switching between providers/models
+🔁 **AI-to-AI Loops** - Infinite improvement cycles
+📊 **Smart Data Collection** - Automatic training data collection
+⚡ **High Availability** - Multiple API keys with rotation
+🎯 **Quality Filtering** - Only valuable interactions collected
+🌐 **Global Access** - Works worldwide, no restrictions
 
-### Advanced Capabilities
-- **Agent Status Monitoring**: Real-time tracking of agent health and availability
-- **API Key Management**: Automatic handling of multiple API keys with rate limiting
-- **Model Status Tracking**: Monitor available, failed, and current AI models
-- **Session Management**: Clean session state management for different projects
-- **Error Recovery**: Automatic retry mechanisms for failed models and API keys
+## 🚀 Quick Setup
 
-## 📦 Installation
+### Option 1: OpenRouter (Recommended - Free Models Available)
+```json
+{
+  "mcpServers": {
+    "zai-mcp-server": {
+      "command": "npx",
+      "args": ["-y", "zai-mcp-server@latest"],
+      "env": {
+        "OPENROUTER_API_KEY": "sk-or-v1-abc123...,sk-or-v1-def456...,sk-or-v1-ghi789...",
+        "MODEL": "google/gemini-2.0-flash-exp:free"
+      }
+    }
+  }
+}
+```
 
+### Option 2: Anthropic Claude
+```json
+{
+  "mcpServers": {
+    "zai-mcp-server": {
+      "command": "npx",
+      "args": ["-y", "zai-mcp-server@latest"],
+      "env": {
+        "ANTHROPIC_API_KEY": "sk-ant-api03-abc123...",
+        "MODEL": "claude-3-5-sonnet-20241022"
+      }
+    }
+  }
+}
+```
+
+### Option 3: DeepSeek (Best Value)
+```json
+{
+  "mcpServers": {
+    "zai-mcp-server": {
+      "command": "npx",
+      "args": ["-y", "zai-mcp-server@latest"],
+      "env": {
+        "DEEPSEEK_API_KEY": "sk-abc123...",
+        "MODEL": "deepseek-chat"
+      }
+    }
+  }
+}
+```
+
+### Option 4: Multi-Provider (Ultimate Setup)
+```json
+{
+  "mcpServers": {
+    "zai-mcp-server": {
+      "command": "npx",
+      "args": ["-y", "zai-mcp-server@latest"],
+      "env": {
+        "OPENROUTER_API_KEY": "sk-or-v1-abc123...,sk-or-v1-def456...",
+        "ANTHROPIC_API_KEY": "sk-ant-api03-abc123...",
+        "DEEPSEEK_API_KEY": "sk-abc123...",
+        "MODEL": "deepseek-chat"
+      }
+    }
+  }
+}
+```
+
+## 📋 Supported Models
+
+### OpenRouter Models
+- `google/gemini-2.0-flash-exp:free` - **FREE** (Recommended)
+- `anthropic/claude-3-haiku:beta` - Fast and efficient
+- `openai/gpt-4o-mini` - Compact and powerful
+- `meta-llama/llama-3.1-8b-instruct:free` - **FREE** Open source
+- `qwen/qwen-2.5-72b-instruct` - High performance
+
+### Anthropic Models (2025)
+- `claude-opus-4-20250514` - Most powerful (newest)
+- `claude-sonnet-4-20250514` - High performance (newest)
+- `claude-3-5-sonnet-20241022` - Recommended balance
+- `claude-3-5-haiku-20241022` - Fastest and cheapest
+
+### DeepSeek Models (2025)
+- `deepseek-chat` - General purpose (DeepSeek-V3)
+- `deepseek-reasoner` - Advanced reasoning (DeepSeek-R1)
+
+## 🛠️ Installation
+
+### VSCode MCP Configuration
+1. Open VSCode Settings (Ctrl/Cmd + ,)
+2. Search for "MCP" or go to Extensions → MCP
+3. Add the configuration above to your MCP settings
+4. Restart VSCode to activate
+
+### Alternative: Direct Installation
 ```bash
-# Clone the repository
-git clone https://github.com/Zrald1/zai-mcp-server.git
-cd zai-mcp-server
+# Install globally
+npm install -g zai-mcp-server
 
-# Install dependencies
-npm install
-
-# Configure your AI API keys
-cp .env.example .env
-# Edit .env with your API keys
+# Or run directly
+npx zai-mcp-server@latest
 ```
 
-## 🔧 Configuration
+## 🎯 Available Tools
 
-Create a `.env` file with your AI provider API keys:
-
-```env
-OPENROUTER_API_KEY=your_openrouter_key
-ANTHROPIC_API_KEY=your_anthropic_key
-DEEPSEEK_API_KEY=your_deepseek_key
-```
-
-## 🎯 Usage
-
-### Starting Infinite Loops
-
-Activate an infinite loop for continuous AI improvement:
-
-```javascript
-// AI-to-AI communication mode (default)
-activate_infinite_loop("actloop improve code quality")
-
-// Regular loop mode
-activate_infinite_loop("actloop optimize performance", { aiToAi: false })
-```
-
-### Managing Loops
-
-```javascript
-// List all active loops
-list_active_loops()
-
-// Get specific loop status
-get_loop_status(loopId)
-
-// Stop specific loop
-stop_loop(loopId)
-
-// Stop all loops
-stop_all_loops()
-```
-
-### AI Prompt Management
-
-```javascript
-// Get AI-generated prompts
-get_ai_prompts({ limit: 5 })
-
-// Acknowledge agent response
-acknowledge_agent_response(loopId, "Agent completed the task successfully")
-```
-
-## 🛠️ Available Tools
-
-### Loop Management
-- `activate_infinite_loop` - Start AI-powered improvement loops
-- `stop_loop` - Stop specific loops by ID
-- `stop_all_loops` - Stop all active loops
-- `list_active_loops` - List currently active loops
-- `get_loop_status` - Get detailed loop status
-- `update_loop_interval` - Modify loop timing
-
-### AI Provider Management
-- `get_ai_provider_status` - Check all AI provider status
-- `get_model_status` - Monitor OpenRouter model availability
-- `get_api_key_status` - Check API key usage and limits
+- `activate_infinite_loop` - Start AI-to-AI improvement loops
+- `stop_ai_loops` - Stop all active loops
+- `list_active_loops` - View running loops
+- `get_ai_provider_status` - Check provider status
 - `reset_ai_providers` - Reset failed providers
-- `reset_failed_models` - Retry failed models
+- `get_ai_prompts` - Get AI-generated prompts
+- `acknowledge_agent_response` - Process AI responses
 
-### Agent Communication
-- `get_ai_prompts` - Retrieve AI-generated prompts
-- `acknowledge_agent_response` - Confirm agent task completion
-- `check_agent_status` - Monitor agent availability
-- `get_pending_responses` - Check waiting responses
+## 💡 Usage Examples
 
-### Session Management
-- `reset_session` - Clear all loops and state
-- `clear_agent_busy_state` - Emergency state reset
+### Start AI-to-AI Loop
+Use the "activate_infinite_loop" tool with:
+- **message**: `"actloop improve my React component performance"`
+- **aiToAi**: `true`
 
-## 🔄 AI-to-AI Loop Workflow
+### Check Provider Status
+Use the "get_ai_provider_status" tool to see:
+- Current provider and model
+- Available API keys
+- Failed providers
+- Request statistics
 
-1. **Activation**: Use `actloop [topic]` to start continuous improvement
-2. **Processing**: AI agents communicate and iterate on the topic
-3. **Monitoring**: Track progress with status tools
-4. **Acknowledgment**: Confirm completed tasks to continue the loop
-5. **Termination**: Use `stploop` to stop AI-to-AI loops
+### Stop Loops
+Use "stop_ai_loops" with:
+- **message**: `"stploop"`
 
-## 📊 Monitoring & Status
+## 📊 Data Collection
 
-The server provides comprehensive monitoring:
+This server automatically collects valuable AI-to-AI interactions for training data:
 
-- **Agent Health**: Real-time agent status and availability
-- **Loop Performance**: Iteration counts, timing, and success rates
-- **API Usage**: Rate limits, failures, and key rotation
-- **Model Availability**: Track which AI models are operational
+### What Gets Collected:
+✅ AI-to-AI problem-solving conversations
+✅ Code generation and improvement examples
+✅ Multi-iteration debugging sessions
+✅ High-quality interactions (80%+ score)
+
+### What Gets Filtered Out:
+❌ Low-quality responses
+❌ Error-heavy conversations
+❌ Personal information
+❌ Non-problem-solving interactions
+
+### Data Usage:
+- Training data is used to improve AI models
+- Helps advance AI-to-AI collaboration research
+- Contributes to open AI development
+
+## 🔧 Configuration Options
+
+### Environment Variables
+- `OPENROUTER_API_KEY` - Comma-separated OpenRouter keys
+- `ANTHROPIC_API_KEY` - Comma-separated Anthropic keys
+- `DEEPSEEK_API_KEY` - Comma-separated DeepSeek keys
+- `MODEL` - Primary model to use
+- `ZAI_FREE_MODE` - Always true (no license needed)
+- `ZAI_DATA_COLLECTION` - Always true (automatic)
+
+### Multiple API Keys
+```json
+"OPENROUTER_API_KEY": "key1,key2,key3,key4"
+```
+The server automatically rotates between keys for high availability.
+
+## 🚀 Advanced Features
+
+### Automatic Failover
+- Switches between providers when one fails
+- Rotates API keys automatically
+- Tries different models for best results
+
+### Smart Data Collection
+- Only collects valuable AI interactions
+- Filters out errors and low-quality responses
+- Compresses and stores efficiently
+
+### High Availability
+- Multiple API providers
+- Multiple keys per provider
+- Automatic error recovery
+
+## 🆓 Why It's Free
+
+This MCP server is completely free because:
+
+- **No License Validation** - No restrictions or paywalls
+- **Community Driven** - Open source development
+- **Data Collection** - Valuable training data helps fund development
+- **AI Advancement** - Contributes to AI research and development
 
 ## 🤝 Contributing
 
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
+We welcome contributions! This project helps advance AI-to-AI collaboration research.
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+MIT License - Use freely in any project, commercial or personal.
 
-## 🙏 Acknowledgments
+## 🔗 Links
 
-- Built for the Model Context Protocol ecosystem
-- Designed for seamless AI agent integration
-- Optimized for VSCode AI assistant workflows
+- **GitHub**: [https://github.com/Zrald1/zai-mcp-server.git](https://github.com/Zrald1/zai-mcp-server.git)
+- **NPM**: [zai-mcp-server](https://www.npmjs.com/package/zai-mcp-server)
+- **Issues**: [Report bugs](https://github.com/Zrald1/zai-mcp-server/issues)
 
 ---
 
-**Made with ❤️ by [Zrald1](https://github.com/Zrald1)**
+**Made with ❤️ by [zraldloop](https://github.com/Zrald1)**
