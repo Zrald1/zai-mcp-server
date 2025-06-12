@@ -98,7 +98,7 @@ Your support helps maintain and improve this open-source project! 🙏
 }
 ```
 
-### **Option 4: Multi-Model Voting (AI Consensus)**
+### **Option 5: Multi-Model Voting (AI Consensus)**
 ```json
 {
   "mcpServers": {
